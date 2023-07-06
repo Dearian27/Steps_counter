@@ -3,27 +3,27 @@ import { View, Text, StyleSheet } from 'react-native';
 
 type DataProps = {
   label: string;
-  value: string | number;
+  value: number;
+  measurement?: string;
 }
-const Data: React.FC<DataProps> = ({ value, label }) => {
+const Data: React.FC<DataProps> = ({ value, label, measurement }) => {
   return (
-    <View style={styles.valueContainer}>
+    <View>
       <Text style={styles.label}>{label}</Text>
-      <Text style={styles.value}>{value}</Text>
+      <Text style={styles.value}>
+        {value}
+        {measurement || ''}
+      </Text>
     </View>
   )
 }
 const styles = StyleSheet.create({
-  valueContainer: {
-    marginRight: 50,
-    marginVertical: 10,
-  },
   label: {
     color: 'white',
     fontSize: 20,
   },
   value: {
-    fontSize: 34,
+    fontSize: 45,
     color: '#AFB3BE',
     fontWeight: '500',
   },
